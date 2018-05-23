@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import model.AddressMaster;
+
 /**
  * Servlet implementation class LoginServlet
  */
@@ -40,9 +42,14 @@ public class LoginServlet extends HttpServlet {
 
 		request.setCharacterEncoding("utf-8");
 
-		request.setAttribute("ID", 1);
-		request.setAttribute("NAME", "ああああ" + request.getParameter("key"));
-		request.setAttribute("ADDR", "西平山");
+		// 検索処理
+		AddressMaster adrmaster = new AddressMaster((String) request.getParameter("key") );
+		adrmaster.run();
+
+		// 検索結果のセット
+		request.setAttribute("ID", adrmaster.getID());
+		request.setAttribute("NAME", adrmaster.getName());
+		request.setAttribute("ADDR", adrmaster.getAddress());
 
 		// 結果表示画面へ遷移
 	    String view = "/WEB-INF/view/ResultView.jsp";
