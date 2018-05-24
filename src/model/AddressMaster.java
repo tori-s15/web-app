@@ -6,6 +6,10 @@ public class AddressMaster {
 	private String address;
 	private String key;
 
+	private final String DB_NAME = "webdb";
+	private final String DB_USER = "webap";
+	private final String DB_PASS = "webap";
+
 	public AddressMaster(String key) {
 		this.key = key;
 	}
@@ -23,9 +27,13 @@ public class AddressMaster {
 	}
 
 	public void run() {
+		SelectAddressMaster master = new SelectAddressMaster();
+
+		String result = master.run();
+
 		this.id = 1;
 		this.name = "XYZ" + this.key;
-		this.address = "東平山";
+		this.address = result;
 	}
 
 }
