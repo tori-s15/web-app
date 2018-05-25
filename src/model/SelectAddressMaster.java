@@ -5,10 +5,12 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 public class SelectAddressMaster {
 
-	public String run() {
+	public List<AddressMaster> run() {
 
 		Connection conn = null;
 		Statement stmt = null;
@@ -19,7 +21,7 @@ public class SelectAddressMaster {
 		String user = "webap";
 		String pass = "webap";
 
-		String result = "";
+		List<AddressMaster> masterlist = new ArrayList<AddressMaster>();
 
 		try {
             // postgreSQLのJDBCドライバを読み込み
@@ -41,9 +43,10 @@ public class SelectAddressMaster {
 			String sql = "SELECT * FROM TEST";
 			rset = stmt.executeQuery(sql);
 
-			rset.next();
+			while(rset.next()) {
 
-			result = rset.getString("id") + "," + rset.getString("name");
+				masterlist.add(new AddressMaster(rset.getInt("id"),rset.getString("name"),rset.getString("adress")));
+			}
 
 		} catch(SQLException e) {
             // 接続、SELECT文の発行でエラーが発生した場合
@@ -60,7 +63,7 @@ public class SelectAddressMaster {
                 e.printStackTrace();
             }
         }
-		return result;
+		return masterlist;
 	}
 
 
