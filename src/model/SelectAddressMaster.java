@@ -15,7 +15,7 @@ public class SelectAddressMaster {
 		ResultSet rset = null;
 
 		// 接続文字列
-		String url = "jdbc:localhost:5432/webdb";
+		String url = "jdbc:postgresql://localhost/webdb";
 		String user = "webap";
 		String pass = "webap";
 
@@ -40,6 +40,8 @@ public class SelectAddressMaster {
 			stmt = conn.createStatement();
 			String sql = "SELECT * FROM TEST";
 			rset = stmt.executeQuery(sql);
+
+			rset.next();
 
 			result = rset.getString("id") + "," + rset.getString("name");
 
