@@ -10,7 +10,7 @@
 <title>検索結果</title>
 </head>
 <body>
-	<table border=5>
+	<table border=3>
 		<% for(AddressMaster master  : masterlist) { %>
 		<tr>
 			<td><%= master.getID() %></td>
