@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /*--Reset-----------------------------------------------------------*/
 
 * {
@@ -24,12 +25,12 @@ ul,ol {
 table {
 	border-collapse: collapse;
 	border-spacing: 0;
- } 
+ }
 
 body {
 	font-size: 100%;
 	font-color: ;
-	font-family: "ƒqƒ‰ƒMƒmŠpƒS Pro W3","Hiragino Kaku Gothic Pro","ƒƒCƒŠƒI",Meiryo,"‚l‚r ‚oƒSƒVƒbƒN","MS PGothic",sans-serif;
+	font-family: "ãƒ’ãƒ©ã‚®ãƒè§’ã‚´ Pro W3","Hiragino Kaku Gothic Pro","ãƒ¡ã‚¤ãƒªã‚ª",Meiryo,"ï¼­ï¼³ ï¼°ã‚´ã‚·ãƒƒã‚¯","MS PGothic",sans-serif;
 	background: #FFFFF0;
 	line-height: 1.6;
 
@@ -101,21 +102,21 @@ header {
 	background: #9fb7d4;
 	margin: 10px;
 	padding: 10px;
-	height: 130px;/*ƒTƒ“ƒvƒ‹—p‚É‚‚³İ’è‚µ‚Ä‚ ‚è‚Ü‚·B*/
+	height: 130px;/*ã‚µãƒ³ãƒ—ãƒ«ç”¨ã«é«˜ã•è¨­å®šã—ã¦ã‚ã‚Šã¾ã™ã€‚*/
 }
 .g2 {
 	width: 280px;
 	background: #9fb7d4;
 	margin: 10px;
 	padding: 10px;
-	height: 300px;/*ƒTƒ“ƒvƒ‹—p‚É‚‚³İ’è‚µ‚Ä‚ ‚è‚Ü‚·B*/
+	height: 300px;/*ã‚µãƒ³ãƒ—ãƒ«ç”¨ã«é«˜ã•è¨­å®šã—ã¦ã‚ã‚Šã¾ã™ã€‚*/
 }
 .g3 {
 	width: 120px;
 	background: #9fb7d4;
 	margin: 10px;
 	padding: 10px;
-	height: 130px;/*ƒTƒ“ƒvƒ‹—p‚É‚‚³İ’è‚µ‚Ä‚ ‚è‚Ü‚·B*/
+	height: 130px;/*ã‚µãƒ³ãƒ—ãƒ«ç”¨ã«é«˜ã•è¨­å®šã—ã¦ã‚ã‚Šã¾ã™ã€‚*/
 }
 footer {
 	margin: 20px auto 0 auto;
@@ -141,7 +142,7 @@ header {
 	width: 960px;
 	margin: 0 auto;
 	overflow: hidden;
-	min-height: 500px;/*ƒTƒ“ƒvƒ‹—p‚É‚‚³İ’è‚µ‚Ä‚ ‚è‚Ü‚·B*/
+	min-height: 500px;/*ã‚µãƒ³ãƒ—ãƒ«ç”¨ã«é«˜ã•è¨­å®šã—ã¦ã‚ã‚Šã¾ã™ã€‚*/
 	background: #FFFFF0;
 }
 footer {
