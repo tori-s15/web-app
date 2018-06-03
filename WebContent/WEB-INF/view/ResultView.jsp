@@ -26,15 +26,15 @@
 			<h3>（開発中）</h3>
 		</header>
 		<div id="contents">
-			<table border=1>
+			<div class="container">
 				<% for(AddressMaster master  : masterlist) { %>
-				<tr>
-					<td><%= master.getID() %></td>
-					<td><%= master.getName() %></td>
-					<td><%= master.getAddress() %></td>
-				</tr>
+				<div class="grid g2">
+					<h2><%= master.getID() %></h2>
+					<h3><%= master.getName() %></h3>
+					<h3><%= master.getAddress() %></h3>
+				</div>
 				<% } %>
-			</table>
+			</div>
 			<form>
 				<input type="button" onclick="location.href = './index.html'" value="戻る">
 			</form>
