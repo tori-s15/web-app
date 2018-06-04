@@ -1,39 +1,34 @@
 package model;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
+import javax.sql.DataSource;
+
 public class SelectAddressMaster {
 
 	public List<AddressMaster> run() {
 
+        InitialContext ctx = null;
 		Connection conn = null;
 		Statement stmt = null;
 		ResultSet rset = null;
 
-		// 接続文字列
-		String url = "jdbc:postgresql://localhost/webdb";
-		String user = "webap";
-		String pass = "webap";
-
 		List<AddressMaster> masterlist = new ArrayList<AddressMaster>();
 
-		try {
-            // postgreSQLのJDBCドライバを読み込み
-            Class.forName("org.postgresql.Driver");
 
-		} catch(ClassNotFoundException e){
-			e.printStackTrace();
-		}
+        try {
 
-		try {
-			// Postgresqlへ接続
-			conn = DriverManager.getConnection(url, user, pass);
+			// Postgresqlへ接続（データプール）
+        	ctx = new InitialContext();
+            DataSource ds = (DataSource) ctx.lookup("java:comp/env/jdbc/postgres");
+            conn = ds.getConnection();
 
 			// 自動コミットオフ
 			conn.setAutoCommit(false);
@@ -48,23 +43,17 @@ public class SelectAddressMaster {
 				masterlist.add(new AddressMaster(rset.getInt("id"),rset.getString("name"),rset.getString("adress")));
 			}
 
-		} catch(SQLException e) {
-            // 接続、SELECT文の発行でエラーが発生した場合
-            e.printStackTrace();
 
+        } catch (NamingException e) {
+            // TODO 自動生成された catch ブロック
+            e.printStackTrace();
+        } catch (SQLException e) {
+            // TODO 自動生成された catch ブロック
+            e.printStackTrace();
 		} finally {
-            // データベース接続の切断
-            try {
-            	if (rset != null) rset.close();
-            	if (stmt != null) stmt.close();
-            	if (conn != null) conn.close();
-            } catch (SQLException e) {
-                // データベース接続の切断でエラーが発生した場合
-                e.printStackTrace();
-            }
-        }
+
+		}
 		return masterlist;
 	}
-
 
 }
